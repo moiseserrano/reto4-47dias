@@ -1,0 +1,16 @@
+# Matriz de riesgos (versión preliminar, 13 nov 2026)
+
+Probabilidad e impacto: Baja / Media / Alta.
+
+| # | Amenaza | Activo | Prob. | Impacto | Evidencia | Control propuesto |
+|---|---------|--------|-------|---------|-----------|-------------------|
+| 1 | Los eventos se sobrescriben antes de poder investigar | Log de Seguridad de DC01 (128 MB, circular, sin retención) | Alta | Alta | evidencias/windows/log-seguridad-tamano.txt | Aumentar el tamaño, exportar y conservar 47 días |
+| 2 | Un proceso malicioso se ejecuta sin dejar rastro (evento 4688) | DC01 | Alta | Alta | evidencias/windows/auditpol-clave.txt (Process Creation: No Auditing) | Activar Process Creation y Sysmon |
+| 3 | Tarea programada sospechosa sin registro (evento 4698) | DC01 | Media | Alta | evidencias/windows/auditpol-clave.txt (Other Object Access Events: No Auditing) | Activar Other Object Access Events y alerta |
+| 4 | Cuenta creada de madrugada que nadie nota (evento 4720) | Active Directory | Media | Alta | evidencias/windows/auditpol-clave.txt (User Account Management: Success) | Alerta por 4720 fuera de horario |
+| 5 | Fuerza bruta contra inicios de sesión (4625) | DC01 y SRV-LNX01 | Media | Media | evidencias/windows/auditpol-clave.txt (Logon: Success and Failure) | Alerta por umbral de fallos |
+| 6 | auditd activo pero sin reglas, casi no registra | SRV-LNX01 | Alta (por confirmar) | Alta | evidencias/linux/auditctl-reglas.txt | Definir reglas de auditoría |
+| 7 | Nadie revisa auth.log ni el journal | SRV-LNX01 | Alta | Media | pendiente de confirmar | Revisión periódica y alertas |
+
+
+
