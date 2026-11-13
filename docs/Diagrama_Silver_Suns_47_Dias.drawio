@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net" modified="2026-11-13T16:50:00.000Z" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="silver-suns-47-dias" name="Diagrama de Red">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="&lt;b&gt;Silver Suns – 47 Días en Silencio&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:18px'&gt;Diagrama de red y entorno de auditoría / detección&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#102A43;strokeColor=#102A43;fontColor=#FFFFFF;fontSize=24;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="430" y="25" width="740" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="internet" value="&lt;b&gt;Internet&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8F1FB;strokeColor=#4A86C5;fontColor=#17365D;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="690" y="125" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="nat" value="&lt;b&gt;VMnet NAT&lt;/b&gt;&lt;br&gt;Salida a Internet solo&lt;br&gt;para actualizaciones" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#7F6000;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="650" y="215" width="260" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="usersbox" value="&lt;b&gt;VMnet2 – Segmento de usuarios&lt;/b&gt;" style="swimlane;html=1;rounded=1;startSize=40;fillColor=#DAE8FC;swimlaneFillColor=#FFFFFF;strokeColor=#6C8EBF;fontColor=#1F4E79;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="55" y="355" width="440" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="serverbox" value="&lt;b&gt;VMnet3 – Segmento de servidores&lt;/b&gt;" style="swimlane;html=1;rounded=1;startSize=40;fillColor=#D5E8D4;swimlaneFillColor=#FFFFFF;strokeColor=#82B366;fontColor=#2E6B2E;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="570" y="355" width="470" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="adminbox" value="&lt;b&gt;VMnet4 – Segmento de administración&lt;/b&gt;" style="swimlane;html=1;rounded=1;startSize=40;fillColor=#F8CECC;swimlaneFillColor=#FFFFFF;strokeColor=#B85450;fontColor=#8A2D2D;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="1115" y="355" width="430" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="wks" value="&lt;b&gt;WKS01 (opcional)&lt;/b&gt;&lt;br&gt;Windows 10/11&lt;br&gt;Usuario estándar&lt;br&gt;&lt;br&gt;Pruebas de eventos de inicio&lt;br&gt;y creación de cuenta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="105" y="455" width="340" height="155" as="geometry"/>
+        </mxCell>
+        <mxCell id="dc" value="&lt;b&gt;DC01&lt;/b&gt;&lt;br&gt;Windows Server 2022&lt;br&gt;&lt;br&gt;AD DS / GPO de auditoría avanzada&lt;br&gt;Sysmon&lt;br&gt;Registro Security / PowerShell" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82B366;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="620" y="445" width="370" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="lnx" value="&lt;b&gt;SRV-LNX01&lt;/b&gt;&lt;br&gt;Ubuntu Server 24.04&lt;br&gt;&lt;br&gt;auditd: usuarios, sudo, cron, SSH&lt;br&gt;journald persistente&lt;br&gt;Scripts Bash: ausearch / journalctl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82B366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="620" y="635" width="370" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="atk" value="&lt;b&gt;ATK01 (solo laboratorio)&lt;/b&gt;&lt;br&gt;Kali Linux&lt;br&gt;Simulación controlada de técnicas ATT&amp;amp;CK&lt;br&gt;T1136 / T1053 / T1110" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B85450;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="455" width="340" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin" value="&lt;b&gt;Estación de administración&lt;/b&gt;&lt;br&gt;PowerShell Get-WinEvent&lt;br&gt;Bash: ausearch / journalctl&lt;br&gt;Revisión de alertas y evidencias" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B85450;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="590" width="340" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="wazuh" value="&lt;b&gt;Wazuh SIEM&lt;/b&gt; (extensión opcional)&lt;br&gt;Centralización y correlación de eventos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="690" y="755" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="internet" target="nat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="nat" target="serverbox">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="Eventos Windows" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="wks" target="dc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="wks" target="lnx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="Simulación" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="atk" target="dc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="atk" target="lnx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="Consulta / auditoría" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="admin" target="dc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="Consulta / auditoría" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="admin" target="lnx">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="Agente (opcional)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="dc" target="wazuh">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="Agente (opcional)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34495E;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="lnx" target="wazuh">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="&lt;b&gt;Nota:&lt;/b&gt; Las VMnet son segmentos aislados del laboratorio en VMware. Los flujos de usuarios y administración hacia los servidores se permiten según reglas; no se exponen las VM fuera de la red del host. Wazuh es opcional." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontColor=#333333;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="250" y="855" width="1100" height="75" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
