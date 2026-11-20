@@ -12,5 +12,8 @@
    - Guardé evidencias: auditpol, tamaño del log de seguridad, puertos y sistema.
    - Hallazgo: Process Creation y Other Object Access Events sin auditoría.
    - Pendiente: medir la tasa diaria de eventos del log.
-
+## 20 nov 2026 - Docker (Ubuntu)
+- Instalé Docker Engine y Docker Compose desde el repositorio oficial.
+- Levanté un servicio nginx sin root (nginx-unprivileged, uid=101) en el puerto 8080.
+- Evidencias: docker-ps, docker-prueba (HTTP 200) y docker-usuario (uid=101).
 
