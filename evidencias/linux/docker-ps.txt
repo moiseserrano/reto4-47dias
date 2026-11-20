@@ -1,0 +1,2 @@
+CONTAINER ID   IMAGE                                COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+3e4d04a52ca5   nginxinc/nginx-unprivileged:stable   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp   stack-web-1
