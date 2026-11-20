@@ -1,0 +1,7 @@
+services:
+  web:
+    image: nginxinc/nginx-unprivileged:stable
+    user: "101"
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
